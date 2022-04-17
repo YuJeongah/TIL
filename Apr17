@@ -108,3 +108,23 @@ public class P49 {
 	}
 
 }
+
+
+package 제2장;
+
+public class P57 {
+
+	public static void main(String[] args) {
+		int a = 10;
+		double b = 5.5;
+		
+		double result = a+b;		
+		System.out.println(result); 
+		int bi = (int)b;
+		System.out.println(bi);
+		int result2 = a+bi;
+		System.out.println(result2);
+	
+	}
+
+}
