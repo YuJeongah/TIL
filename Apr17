@@ -128,3 +128,38 @@ public class P57 {
 	}
 
 }
+
+
+
+package 제2장;
+
+public class P59 {
+
+	public static void main(String[] args) {
+		byte a = 10;
+		byte b = 20;
+		// byte c = a+b; 컴파일 오류
+		int i = a+b;
+		System.out.println(i);
+		
+		char c1 = 'A';
+		char c2 = 1;
+		// char c3 = c1+c2 컴파일오류
+		int i2 = c1 + c2;
+		System.out.println("유니코드="+i2);
+		System.out.println("출력문자="+(char)i2);
+		
+		int i3 =10;
+		int i4 = i3/4;
+		System.out.println(i4);
+		
+		int i5 =10;
+		// int int6 = 10/4.0; 컴파일 오류
+		double d = i5/4.0;
+		System.out.println(d);
+		
+		
+
+	}
+
+}
