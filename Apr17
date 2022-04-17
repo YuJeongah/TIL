@@ -1,0 +1,39 @@
+package 제2장;
+
+public class P45 {
+
+	public static void main(String[] args) {
+	int var1 =10; //10진수
+	int var2 =012; //8진수 
+	int var3= 0xA; // 16진수
+	System.out.println(var1);
+	System.out.println(var2);
+	System.out.println(var3);
+	
+  long l1 = 10;
+  long l2 = 20L;
+ // long l3 = 10000000000; // 결국 long변수도 10억은 되어도 100억은 안된다. 
+  long l4 = 10000000000L;
+   System.out.println(l1);
+   System.out.println(l2);
+   System.out.println(l4);
+   
+   double d1 =3.14;
+   //float d2 = 3.14;
+   float d3 = 3.14f;
+   System.out.println(d1);
+   System.out.println(d3);
+   
+   int var6 = 3000000; //3000000
+   double var7 = 3e6;
+   float var8 = 3e6f;
+   double var9 = 2e-3; //0.002
+   
+   System.out.println(var6);
+   System.out.println(var7);
+   System.out.println(var8);
+   System.out.println(var9);
+   
+	}
+
+}
