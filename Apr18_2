@@ -1,0 +1,47 @@
+package company;
+
+public class Manager extends Employee{
+// 눈에는 안보이지만, Employee.java에서 id,name,salary속성을 상속받아놓음.
+private double bonus;
+
+public Manager() {
+}
+
+public Manager(String id, String name, double salary, double bonus) {
+	super(id, name, salary);
+	this.bonus = bonus;
+}
+
+
+public double getBonus() {
+	return bonus;
+}
+
+public void setBonus(double bonus) {
+	this.bonus = bonus;
+}
+
+@Override
+public String toString() {
+	return "Manager [bonus=" + bonus + ", toString()=" + super.toString() + "]";
+}
+
+// 재정의(overriding): 상위함수를 재정의함
+public double annsalary() {
+	double sum = 0.0;
+//	sum = getsalary()*12 + this.bonus;
+		sum = super.annsalary()+this.bonus;
+//	두 연봉계산식은 모두 의미가 같다. 하지만 두 번째 식이 더 경제적이다.
+		return sum;
+}
+public double getBonusTex() {
+	double tex = 0.0;
+	tex = this.bonus-(this.bonus/1.1);
+	
+	return tex;
+}
+}
+
+
+
+
