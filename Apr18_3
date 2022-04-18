@@ -1,0 +1,18 @@
+package company;
+import multi.Employee;
+import multi.Secretary;
+
+public class CompanyApp {
+// Employee.java와 Manager.java에서 설정을 이어받음. 상속 아님.
+	public static void main(String[] args) {
+		Employee e = new Employee("100", "james", 300,0);
+		System.out.println(e);
+		System.out.println(e.annsalary());
+		
+		Manager m = new Manager("101", "lee", 300, 500);
+		System.out.println(m);
+		System.out.println(m.annsalary());
+		System.out.println(m.getBonusTex());
+	}
+
+}
