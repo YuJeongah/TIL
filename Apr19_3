@@ -1,0 +1,12 @@
+package ws;
+
+public class CarApp {
+
+	public static void main(String[] args) {
+	GasolineCar g = new GasolineCar("G10", 10, "black", 3000, 20, 100);
+	System.out.println(g);
+	HybridCar h = new HybridCar("High7", 12, "white", 2000, 17, 75, 400, "E", 230);
+	            System.out.println(h);    
+	}
+
+}
