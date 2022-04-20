@@ -105,3 +105,66 @@ HashMap<String, CustomerVO> map;
 
 
 }
+package ws;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import P346.CustomerVO;
+import P346.DAO;
+import P346.OracleDAO;
+
+public class App {
+
+	public static void main(String[] args) {
+		System.out.println("Start...");
+		Oracle Oracle = new Oracle();
+		Scanner sc = new Scanner(System.in);
+		while(true) {
+			System.out.println("Input cmd(q,c,u,r,d)");
+			String cmd = sc.next();
+			if(cmd.equals("q")) {
+				System.out.println("Bye");
+				break;
+			} else if(cmd.equals("c")) {
+				System.out.println("Input Customer info");
+				System.out.println("Input Customer id");
+				String id = sc.next();
+				System.out.println("Input Customer pwd");
+				String pwd = sc.next();
+				System.out.println("Input Customer name");
+				String name = sc.next();
+				
+			
+				CustomerVO c = new CustomerVO(id,pwd,name);
+				
+			Oracle.delete(id);
+			
+			} else if(cmd.equals("d")) {
+				System.out.println("Input Customer id");
+				String id = sc.next();
+				Oracle.delete(id);
+				
+			}else if(cmd.equals("r")) {
+				System.out.println("Input Customer id");
+				String id = sc.next();
+				CustomerVO c = Oracle.read(id);
+				System.out.println(c);
+				
+			
+			}else if(cmd.equals("u")) {
+				System.out.println("Input Customer id");
+				String id = sc.next();
+				System.out.println("Input Customer pwd");
+				String pwd = sc.next();
+				System.out.println("Input Customer name");
+				String name = sc.next();
+				
+			
+				CustomerVO c = new CustomerVO(id,pwd,name);
+			Oracle.update(c);
+			}
+	}
+	}
+}
+
