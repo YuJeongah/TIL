@@ -1,0 +1,17 @@
+package ws;
+
+import P346.CustomerVO;
+
+public interface Inter {
+	public default void connect() {
+		System.out.println("Connect...");
+	}
+	public default void close() {
+		System.out.println("Close...");
+	}
+	
+	public void create(CustomerVO c);
+	public void delete(String id);
+	public void update(CustomerVO c);
+	public CustomerVO read(String id);
+}
