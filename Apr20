@@ -61,3 +61,47 @@ public class CustomerVO {
 	}
 	
 }
+package ws;
+
+import java.util.HashMap;
+
+import P346.CustomerVO;
+
+public class Oracle implements Inter {
+HashMap<String, CustomerVO> map;
+
+	public Oracle() {
+		map = new HashMap<String, CustomerVO>();
+	}
+
+	@Override
+	public void create(CustomerVO c) {
+		// TODO Auto-generated method stub
+		String key = c.getId();
+		map.put(key, c);
+	}
+
+	@Override
+	public void delete(String id) {
+		// TODO Auto-generated method stub
+		map.remove(id);
+	}
+
+	@Override
+	public void update(CustomerVO c) {
+		// TODO Auto-generated method stub
+		String key = c.getId();
+		map.put(key, c);
+		
+	}
+
+	@Override
+	public CustomerVO read(String id) {
+		// TODO Auto-generated method stub
+		CustomerVO c1 = null;
+		c1 = map.get(id);
+		return c1; 
+	}
+
+
+}
