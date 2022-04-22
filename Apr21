@@ -20,3 +20,57 @@ try {
 }
 }
 // 17행에서 오류나는 이유 못찾겠음
+
+package bank;
+
+public class Account {
+	private String accNo;
+	private double balance;
+
+public Account() {
+}
+
+public Account(String accNo) {
+	this.accNo = accNo;
+}
+
+public Account(String accNo, double balance) {
+	this.accNo = accNo;
+	this.balance = balance;
+}
+
+public String getAccNo() {
+	return accNo;
+}
+
+
+
+public double getBalance() {
+	return balance;
+}
+
+
+@Override
+public String toString() {
+	return "Account [accNo=" + accNo + ", balance=" + balance + "]";
+}
+public void deposit(double money) throws Exception { 
+	// money는 argument에 해당
+	if(money < 1) {
+		throw new MinusException("음수입니다");
+		}
+	this.balance += money;
+}
+// 출금 금액은 1보다 커야 하고, 잔액보다 작아야 한다.
+public void withdraw(double money) throws MinusException,OverdrawnException {
+	if( money < 1); {
+		throw new MinusException("형식이 틀렸습니다");
+		}
+if (this.balance < money)  {
+	throw new OverdrawnException("잔액부족");
+}
+this.balance -= money;
+ }
+}
+
+// 69행~71행 여긴 또 뭐가 문제일까...
