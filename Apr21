@@ -1,0 +1,22 @@
+package oracle;
+
+public class DeleteTestApp {
+
+	public static void main(String[] args) throws NotFoundException {
+DAO dao = new CustomerDAO();
+
+CustomerVO c1 = new CustomerVO("id088", "pwd01", "lee");
+
+try {
+	dao.insert(c1);
+	System.out.println("Completed1..");
+	dao.delete("id01");
+	System.out.println("Completed2..");
+} catch (Exception e) {
+	System.out.println(e.getMessage());
+} catch (DuplicatedIDException e){
+	System.out.println(e.getMessage());
+}
+}
+}
+// 17행에서 오류나는 이유 못찾겠음
