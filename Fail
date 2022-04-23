@@ -1,0 +1,87 @@
+public abstract class Car {
+// attribute
+private String name;
+private double fe;  //Fuel-efficient
+private String color;
+private double volume; // 배기량
+private double cf; // CurrentFuel
+
+public Car() {
+}
+
+public Car(String name, double fe, String color, double volume, double cf) {
+	this.name = name;
+	this.fe = fe;
+	this.color = color;
+	this.volume = volume;
+	this.cf = cf;
+}
+
+public String getName() {
+	return name;
+}
+
+public void setName(String name) {
+	this.name = name;
+}
+
+public double getFe() {
+	return fe;
+}
+
+public void setFe(double fe) {
+	this.fe = fe;
+}
+
+public String getColor() {
+	return color;
+}
+
+public void setColor(String color) {
+	this.color = color;
+}
+
+public double getVolume() {
+	return volume;
+}
+
+public void setVolume(double volume) {
+	this.volume = volume;
+}
+
+public double getCf() {
+	return cf;
+}
+
+public void setCf(double cf) {
+	this.cf = cf;
+}
+
+public abstract void go(int L) {	
+	if (this.cf < 1 ) {
+		System.out.println("주행불가(연료부족)");
+		System.out.println("긴급서비스를 요청하세요   070-8888-8282");
+	}
+}
+public abstract void stop() {
+}
+public abstract void alarm(int km) {
+	if(this.cf < 7) {
+		System.out.println("연료가 부족합니다");
+	return;
+	}
+	this.cf -= (km/this.fe);
+}
+public abstract void maxspeed(int speed) {
+	
+
+}
+
+@Override
+public String toString() {
+	return "Car [name=" + name + ", fe=" + fe + ", color=" + color + ", volume=" + volume + ", cf=" + cf + "]";
+}
+ 
+
+
+}
