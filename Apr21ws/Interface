@@ -1,0 +1,24 @@
+package ws;
+
+import java.util.ArrayList;
+
+import oracle.DuplicatedIDException;
+import oracle.NotFoundException;
+
+public interface Interface {
+	 public default void connect() {
+		 System.out.println("Connect..");
+	 }
+	 public default void close() {
+		 System.out.println("Close..");
+	 }
+		 // Create, Read, Update , Delete
+		 public void create(CustomerVO c) throws DuplicatedIDException, ws.DuplicatedIDException ;
+		 public void insert(CustomerVO c) throws DuplicatedIDException;
+	 public CustomerVO read(String id) throws NotFoundException;
+	 public CustomerVO select(String id) throws NotFoundException;
+	 public void update(CustomerVO c)throws NotFoundException;
+	 public void delete(String id)throws NotFoundException;
+
+	
+}
