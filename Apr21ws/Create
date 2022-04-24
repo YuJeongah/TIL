@@ -1,0 +1,22 @@
+package ws;
+
+import oracle.DuplicatedIDException;
+
+public class CreateTestApp {
+
+	public static void main(String[] args) {
+		Interface inter = new CustomerDAO();
+		CustomerVO c = new CustomerVO("id2022","pw2022","Kate");
+		
+		
+try {
+	inter.insert(c);
+	System.out.println("생성 성공!");
+} catch (DuplicatedIDException e) {
+	System.out.println(e.getMessage());
+	
+
+	}
+
+}
+}
