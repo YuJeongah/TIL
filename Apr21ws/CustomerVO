@@ -1,0 +1,85 @@
+package ws;
+
+import oracle.DuplicatedIDException;
+import oracle.NotFoundException;
+
+public class CustomerVO implements Interface {
+private String id;
+private String pwd;
+private String name;
+// app에서 가입한 회원의 회원정보를 데이터베이스에 던져주는 역할을 함
+public CustomerVO() {
+}
+
+public CustomerVO(String id, String pwd, String name) {
+	this.id = id;
+	this.pwd = pwd;
+	this.name = name;
+}
+
+public String getId() {
+	return id;
+}
+
+public void setId(String id) {
+	this.id = id;
+}
+
+public String getPwd() {
+	return pwd;
+}
+
+public void setPwd(String pwd) {
+	this.pwd = pwd;
+}
+
+public String getName() {
+	return name;
+}
+
+public void setName(String name) {
+	this.name = name;
+}
+
+@Override
+public String toString() {
+	return "CustomerVO [id=" + id + ", pwd=" + pwd + ", name=" + name + "]";
+}
+
+@Override
+public void create(CustomerVO c) throws DuplicatedIDException {
+	// TODO Auto-generated method stub
+	
+}
+
+@Override
+public void insert(CustomerVO c) throws DuplicatedIDException {
+	// TODO Auto-generated method stub
+	
+}
+
+@Override
+public CustomerVO read(String id) throws NotFoundException {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+@Override
+public CustomerVO select(String id) throws NotFoundException {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+@Override
+public void update(CustomerVO c) throws NotFoundException {
+	// TODO Auto-generated method stub
+	
+}
+
+@Override
+public void delete(String id) throws NotFoundException {
+	// TODO Auto-generated method stub
+	
+}
+
+}
