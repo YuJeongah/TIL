@@ -1,0 +1,22 @@
+package ws;
+
+import java.util.ArrayList;
+
+import oracle.NotFoundException;
+
+public class ReadTestApp {
+
+	public static void main(String[] args) {
+	Interface inface = new CustomerDAO();
+	CustomerVO list = null;
+	
+	try {
+		list = inface.select(null);
+	} catch (NotFoundException e) {
+		System.out.println(e.getMessage());
+		
+	}
+
+	}
+
+}
