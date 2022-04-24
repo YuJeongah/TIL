@@ -1,0 +1,21 @@
+package ws;
+
+import oracle.NotFoundException;
+
+public class DeleteTestApp {
+
+	public static void main(String[] args) {
+	Interface inter = new CustomerDAO();
+	CustomerVO c1 = new CustomerVO("id123","pw123","Maria");
+	
+	try {
+		inter.delete("id123");
+		System.out.println("삭제되었습니다");
+	} catch (NotFoundException e) {
+		System.out.println(e.getMessage());
+	}
+
+
+	}
+
+}
