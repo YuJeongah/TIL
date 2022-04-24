@@ -1,0 +1,19 @@
+package ws;
+
+import oracle.DuplicatedIDException;
+
+public class UpdateTestApp {
+
+
+	public static void main(String[] args) throws NotFoundException {
+		Interface inface = new CustomerDAO();
+		CustomerVO c = new CustomerVO("id01","pw01","Jenny");
+		try {
+				inface.insert(c);
+		System.out.println("업데이트 완료");
+		}catch (DuplicatedIDException e) {
+			
+			e.printStackTrace();
+		} 
+	}
+}
