@@ -1,0 +1,35 @@
+sql
+
+CREATE TABLE CUSTOMER(
+id VARCHAR(20)primary KEY,
+pwd VARCHAR(20),
+NAME VARCHAR(30)
+); 
+
+CREATE TABLE ITEM (
+id  int PRIMARY KEY,
+name VARCHAR(30) ,
+price FLOAT
+);
+-- CRUD
+-- CREATE
+INSERT INTO CUSTOMER VALUES('id01','pwd01' , '이말숙');
+INSERT INTO CUSTOMER VALUES('id02','pwd02' , '최말숙');
+INSERT INTO CUSTOMER VALUES('id03','pwd03' , '박영자');
+INSERT INTO CUSTOMER VALUES('id04','pwd04' , '정혜영');
+INSERT INTO CUSTOMER VALUES('id05','pwd05' , '이유리');
+INSERT INTO CUSTOMER VALUES('id06','pwd06' , '최진우');
+INSERT INTO CUSTOMER VALUES('id07','pwd07' , '박영호');
+-- UPDATE
+UPDATE CUSTOMER SET pwd = '1111 ', name='홍말숙 ' WHERE id = 'id01';
+UPDATE CUSTOMER SET pwd = '3333 '  WHERE id = 'id03';
+UPDATE CUSTOMER SET pwd = '5555 '  WHERE id = 'id05';
+ -- where없으면 모든 비밀번호를 1111, 이름을 홍말숙으로 바꾸는 대형사고발생
+-- DELETE
+DELETE FROM CUSTOMER WHERE id = 'id02';
+-- READ
+SELECT *FROM CUSTOMER
+-- 하나만 가져오는 셀렉트
+SELECT * FROM CUSTOMER WHERE id = 'id01'; 
+ 
+ 왜 대문자로 쓰지?
