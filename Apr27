@@ -1,0 +1,40 @@
+CREATE TABLE Employee(
+
+id VARCHAR(10)primary KEY,
+position VARCHAR -- 사원, 매니저
+name VARCHAR(10)
+);
+
+CREATE TABLE PRODUCT(
+	id VARCHAR PRIMARY KEY,
+    name VARCHAR(20),
+    date VARCHAR
+    );
+
+
+-- CRUD
+-- Create 
+INSERT INTO Employee VALUES ('eid001','사원','홍길동');
+INSERT INTO Employee VALUES ('eid002','사원','김길동');
+INSERT INTO Employee VALUES ('eid003','사원','박길동');
+INSERT INTO Employee VALUES ('eid004','사원','최길동');
+INSERT INTO Employee VALUES ('eid005','사원','정길동');
+INSERT INTO Employee VALUES ('eid006','사원','이길동');
+INSERT INTO Employee VALUES ('eid007','사원','유길동');
+INSERT INTO Employee VALUES ('eid101','매니저','김영희');
+INSERT INTO Employee VALUES ('eid102','매니저','박철수');
+INSERT INTO Employee VALUES ('eid103','매니저','홍철수');
+
+INSERT INTO PRODUCT VALUES ('eid103','매니저','홍철수');
+~~~
+
+INSERT INTO TICKET VALUES ('eid103','매니저','홍철수');
+~~~
+
+
+-- Update
+UPDATE Employee SET position='매니저', name='홍말숙' WHERE id='eid001';  
+-- Delete
+DELETE FROM Employee WHERE id='eid007';
+-- Read
+SELECT * FROM Employee;
