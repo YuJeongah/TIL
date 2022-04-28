@@ -1,0 +1,109 @@
+select * from usertbl
+where addr = '서울'
+and birthYear > 1970 
+and mobile1 is not null;
+
+select * from usertbl
+where height > 170 or birthYear < 1980;
+
+
+select * from usertbl
+where height = 182;
+-- is 는 is null , is not null일때만 쓴다
+
+select * from usertbl
+where height >= 180 and height <=183;
+
+select * from usertbl
+where height between 180 and 183;
+
+select * from usertbl
+where height = 182 or height =170 or height =172;
+
+select * from usertbl
+where height in (182,170,172);
+
+
+SELECT * FROM usertbl
+WHERE mDate < '2010-10-10' ; 
+
+SELECT * FROM usertbl
+WHERE date_format(mDate , '%Y')< '2010';
+
+-- 가입 연도가 2005~2008년 인 회원을 조회하시오
+
+SELECT * FROM usertbl
+WHERE date_format(mDate, '%Y') BETWEEN 2005 and 2008;
+
+-- 가입 연도가 2007,2009년인 회원을 조회하시오
+SELECT * FROM usertbl
+WHERE date_format(mDate, '%Y') = 2007 or date_format(mDate, '%Y') =2009;
+
+SELECT * FROM usertbl
+WHERE date_format(mDate, '%Y') in ('2007','2009');
+
+-- 가입월이 04월, 07월인 회원을 조회하시오
+SELECT * FROM usertbl
+WHERE date_format(mDate, '%m') in ('04','07');
+-- %Y %m %d %H %i %SAVEPOINT
+
+
+SELECT * FROM usertbl
+WHERE name like '김%';
+
+SELECT * FROM usertbl
+WHERE name like '%김%';
+
+SELECT * FROM usertbl
+WHERE name like '_종_';
+
+SELECT * FROM usertbl
+WHERE name like '_종%';
+
+SELECT * FROM usertbl
+WHERE name like '%종%';
+
+-- 윤종신 회원과 같은 지역의 회원을 조회하시오
+
+SELECT addr FROM usertbl
+where name = '윤종신' ;
+
+SELECT * FROM usertbl
+WHERE addr = '경남';
+
+SELECT * FROM usertbl
+WHERE addr = (SELECT addr FROM usertbl
+where name = '윤종신' );
+
+-- 윤종신회원보다 키가 큰 회원을 조회하시오
+SELECT * FROM usertbl
+WHERE height > (SELECT height from usertbl where name = '윤종신');
+
+
+-- 경남지역의 회원 키와 동일한 회원들을 조회하시오
+SELECT * FROM usertbl
+WHERE height IN (SELECT height FROM usertbl where addr = '경남');
+
+-- ~순으로 나열하시오
+SELECT * FROM usertbl ORDER BY birthYear;
+SELECT * FROM usertbl ORDER BY 3;
+SELECT * FROM usertbl ORDER BY birthYear DESC; -- 반대어 ASC;
+
+SELECT * FROM usertbl ORDER BY height DESC , name ASC ;
+SELECT * FROM usertbl ORDER BY 7 DESC ,  2 ASC ;
+
+SELECT * FROM usertbl
+WHERE addr = '서울'
+and birthYear < 1980
+order by name;
+
+-- 가입회원들의 지역을 중복없이 조회하시오
+select distinct addr from usertbl;
+
+select distinct addr, name from usertbl;
+
+SELECT * FROM usertbl ORDER BY height limit 3;
+-- orderby limit을 함께 쓰면 순위를 매길 수 있다.
+
+SELECT * FROM usertbl ORDER BY height limit 2,5;
+
