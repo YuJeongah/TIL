@@ -1,0 +1,22 @@
+SELECT * FROM CUST;
+SELECT * FROM item;
+SELECT * FROM cart;
+
+select * from cart
+inner join cust on cart.custid = cust.id;
+
+INSERT INTO cart (custid, itemid,num,regdate) VALUES ('id02',1002,7,CURRENT_DATE());
+INSERT INTO cart (custid, itemid,num,regdate) VALUES ('id03',1003,3,CURRENT_DATE());
+
+
+select c.id, cu.name, i.name, i.price(c.num * i.price) from cart c
+inner join cust cu on c.custid = cu.id
+inner join item i on c.itemid = i.id
+where i.price > 15000 ;
+
+-- 장바구니에 고객 이름별 총 금액의 평균을 구하시오. 
+select cu.name, avg(c.num * i.price) as iavg from cart c
+inner join cust cu on c.custid = cu.id
+inner join item i on c.itemid = i.id
+group by cu.name
+having iavg >= 100000;
