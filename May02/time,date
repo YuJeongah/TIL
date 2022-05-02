@@ -1,0 +1,102 @@
+-- auto-increment 
+drop table if EXISTS itemtbl;
+create table itemytbl(
+id int primary key AUTO_INCREMENT,
+name varchar(20) not null unique,
+price int not null,
+regdate date
+
+);
+
+alter table itemtbl AUTO_INCREMENT=1000;
+insert into itemtbl values(null,'pants1',null,sysdate());
+insert into itemtbl values(null,'pants1',10000,sysdate());
+insert into itemtbl values(null,'pants2',20000,sysdate());
+insert into itemtbl values(null,'pants3',30000,sysdate());
+insert into itemtbl values(null,'pants4',40000,sysdate());
+insert into itemtbl values(null,'pants5',50000,sysdate());
+insert into itemtbl values(null,'pants6',60000,sysdate());
+insert into itemtbl values(null,'pants7',70000,sysdate());
+insert into itemtbl values(null,'pants8',80000,sysdate());
+insert into itemtbl values(null,'pants9',90000,sysdate());
+insert into itemtbl values(null,'pants9',100000,sysdate());
+select * from itemtbl;
+
+drop table if EXISTS carttbl;
+create table carttbl(
+id int primary key AUTO_INCREMENT,
+userid char(8) not null,
+itemid int not null,
+qt INT not null,
+regdate date 
+);
+-- 1000 , 1001
+-- bbk kbs jyp
+
+insert into carttbl values(null,'BBK',1000,10,sysdate());
+insert into carttbl values(null,'KBS',1001,10,sysdate());
+insert into carttbl values(null,'JYP',1002,10,sysdate());
+SELECT * FROM CARTTBL;
+
+DELETE FROM CRATTBL WHERE USERID = 'BBB';
+
+-- 사용자별 구매금액의 합을 temp라는 가상테이블에 넣으시오.
+with temp(userid, total)
+as
+(select userid,sum(price*amount) from buytbl
+group by userid)
+select *from temp;
+
+-- 각 지역별 가장 키가 큰 회원들의 평균을 구하시오??
+with temp(addr, max)
+as
+(select addr , max(height) from usertbl
+GROUP BY addr)
+select avg(max) from temp;
+
+select a.addr, a.hmax from(
+select addr , max(height)as hmax from usertbl
+GROUP BY addr ) a 
+ -- ()안 내용이 서브쿼리 --
+ 
+ select concat (prodname '|' groupname ) from buytbl;
+
+select userid, price*amount as tt, if(price*amount > 500, 'hight','low') from buytbl;
+
+select prodname, if null (groupname,'none') from buytbl;
+select count (groupname) from buytbl;
+select count (prodname) from buytbl;
+
+
+-- 구매수량을 기준으로 회원등급을 나누어라.
+select userid, amount, 
+case amount 
+when amount >= 1 and amount < 2 then 'c'
+when amount >= 2 and amount < 4 then 'b'
+when amount >= 4 and amount < 6 then 'a'
+else 'none'
+end as level
+from buytbl;
+
+select char_length('abc'), length('abc');
+select char_length('가나다'), length('가나다');
+
+select format(123456.123456,4);
+
+select mdate,adddate(mdate,interval 30day),
+ subdate(mdate, interval 30day)
+ from usertbl;
+
+select curdate();
+select curtime();
+select now();
+select sysdate();
+
+
+select year (sysdate());
+select year(mdate) from usertbl;
+select date_format(mdate, '%y-%m-%d') from usertbl;
+
+select mdate, 
+period_diff(now(), '%Y%M') , date_format(mdate,'%Y%M')
+from usertbl;
