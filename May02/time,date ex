@@ -1,0 +1,36 @@
+select * from emp;
+
+-- 오늘 날짜 기준으로 입사일부터 며칠이 지났고 몇달이 지났는지 출력하시오
+select empname , datediff('2022-04-29' , hdate) as days  from emp;
+
+
+-- 직원들 연봉이 4000이상이면 high 2500이상이면 미들, 2500미만이면 로우 출력
+select empname, salary,
+case salary
+when salary >=4000 ELSE 'High'
+when salary >= 2500 and salary< 4000 then 'Middle'
+when salary < 2500 then 'Low'
+else 'none'
+
+end as level
+from emp;
+
+-- 부서별 연봉 평균의 합을 구하시오
+select deptno, sum(avg(salary)) from emp group by deptno, sum(avg(salary));
+
+-- 부서별 입사일 평균을 구하시오
+
+
+-- 이말숙 사원과 같은 해에 입사한 직원을 조회하시오
+select * from emp where year(hdate) = (select year(hdate)from emp where empname = '이말숙');
+
+-- 부서별 최고임금을 받는 직원들의 평균을 구하고, 그 평균보다 많이 받는 직원을 조회하시오
+select deptno, empname, salary from emp
+where (with temp(deptno, max)
+as
+(select deptno , max(salary) from emp
+GROUP BY deptno)
+select avg(max) from temp);
+
+
+select * from emp;
