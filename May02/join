@@ -1,0 +1,60 @@
+-- 사원 정보를 출력하시오
+-- 사원정보 : 사원번호, 이름, 부서명, 직급명
+
+select * from emp;
+select * from title;
+select * from dept;
+
+INSERT INTO TITLE VALUES('50','인턴');
+INSERT INTO EMP VALUES('1011',NULL,NULL,'이말자',NULL,3000,SYSDATE());
+
+
+
+select e.empname,t.titlename,d.deptname from emp e
+inner join title t on e.titleno = t.titleno
+inner join dept d on e.deptno = d.deptno;
+
+
+select d.deptname, AVG(e.salary) from emp e
+inner join title t on e.titleno = t.titleno
+inner join dept d on e.deptno = d.deptno
+group by d.deptname;
+
+-- OUTER JOIN
+SELECT * FROM EMP E
+RIGHT OUTER JOIN TITLE T ON E. TITLENO = T.TITLENO;
+-- LEFT OUTER JOIN TITLE T ON E. TITLENO = T.TITLENO;
+-- LEFT 로 하면 추가한 50, 인턴은 나오지 않음
+
+SELECT * FROM EMP E
+RIGHT OUTER JOIN TITLE T ON E. TITLENO = T.TITLENO
+UNION
+SELECT * FROM EMP E
+LEFT OUTER JOIN TITLE T ON E. TITLENO = T.TITLENO;
+
+-- 사원정보를 출력하시오
+-- 이름, 부서명, 직급명을 출력한다. 
+-- 단, 이말자도 출력한다. 
+select e.empname,t.titlename,d.deptname from emp e
+LEFT OUTER join title t on e.titleno = t.titleno
+LEFT OUTER join dept d on e.deptno = d.deptno;
+
+-- CROSS JOIN
+SELECT * FROM EMP E
+CROSS JOIN TITLE T ;
+
+-- SELF JOIN
+SELECT * FROM EMP;
+-- 사원이름과 매니저 이름을 출력하시오 
+-- 단, 모든 직원을 출력하시오
+SELECT E1.EMPNAME, E2.EMPNAME AS MANAGER FROM EMP E1
+LEFT OUTER JOIN EMP E2 ON E1.MANAGER = E2.EMPNO;
+
+-- 직원정보를 출력한다
+-- 이름, 부서명, 직급명, 매니저이름
+-- 단, 모든 직원을 출력한다. 
+SELECT * FROM EMP;
+select E.EMPNAME, d.deptname, T.TITLENAME,E2.EMPNAME from emp e
+LEFT OUTER JOIN title t on e.titleno = t.titleno
+LEFT OUTER JOIN dept d on e.deptno = d.deptno
+LEFT OUTER JOIN EMP E2 ON E.MANAGER = E2.EMPNO;
