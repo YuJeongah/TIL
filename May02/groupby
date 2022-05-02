@@ -1,0 +1,60 @@
+select * from buytbl;
+
+select * from buytbl GROUP BY userID;
+ -- groupby로 검색하려면 *쓰지마세요
+ 
+ select userID ,  price from buytbl GROUP BY userID;
+ -- 
+ 
+ select userID ,  sum(price),prodName from buytbl GROUP BY userID;
+ -- 회원별 구매금액의 평균을 구하시오
+ select userID , round(avg(price),1) from buytbl GROUP BY userID;
+ select round(avg(price),1) from buytbl GROUP BY userID;
+ 
+ select round(avg(price),1) from buytbl 
+ GROUP BY userID
+ HAVING round(AVG(price),1) > 100;
+ 
+select userID, round(AVG(price),1) as pavg from buytbl 
+ GROUP BY userID
+ HAVING pavg > 100
+ ORDER BY PAVG DESC;
+ -- ORDER BY 는 항상 막줄이어야 한다.
+ select userID, round(AVG(price*AMOUNT),1) as pavg from buytbl 
+ GROUP BY userID
+ HAVING pavg > 100
+ ORDER BY PAVG DESC;
+ 
+ 
+ 
+SELECT count(DISTINCT(userID)) from buytbl;
+
+-- 그룹네임별 구매 고객의 수를 구하시오
+SELECT groupname , count(DISTINCT(userID)) from buytbl
+GROUP BY groupName; 
+
+-- usertbl 회원들의 평균 키보다 큰 회원을 조회하시오/
+
+select avg(height) from usertbl;
+
+select * from usertbl
+where height > (select avg(height) from usertbl);
+
+ -- 회원 중 모바일 번호가 입력된 회원의 수
+ SELECT count(mobile1)from usertbl;
+-- count는 null값은 세지 않는다. 
+
+select userid , groupname, sum(price*amount)  as usum from buytbl
+group by userid , groupname 
+having userid IN ('BBK','KBS')
+order by userid;
+
+SELECT NUM,GROUPNAME FROM BUYTBL
+GROUP BY GROUPNAME , NUM
+WITH ROLLUP;
+
+
+
+
+
+ 
