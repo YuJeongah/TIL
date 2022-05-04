@@ -1,0 +1,76 @@
+-- DDL
+DROP DATABASE IF EXISTS ws_shoppingdb;
+CREATE DATABASE ws_shoppingdb;
+USE ws_shoppingdb;
+
+
+DROP TABLE IF EXISTS cart;
+DROP TABLE IF EXISTS cust;
+DROP TABLE IF EXISTS item;
+DROP TABLE IF EXISTS cate;
+DROP TABLE IF EXISTS ordertbl;
+DROP TABLE IF EXISTS orderdet;
+
+-- cust table 
+CREATE TABLE cust(
+	uid VARCHAR(20) not null,
+      name VARCHAR(20) NOT NULL,
+    pwd VARCHAR(20) not null,  
+    addr VARCHAR(50) NOT NULL,
+    phone varchar(20),
+    email varchar(50)
+   
+);
+
+ALTER TABLE cust ADD CONSTRAINT PRIMARY KEY(uid);
+
+
+
+-- cate table 
+
+CREATE TABLE cate(
+	cateno INT PRIMARY key,
+    name VARCHAR(20)  
+ 
+);
+
+
+ALTER TABLE cate ADD CONSTRAINT UNIQUE (name);
+
+
+
+-- item table 
+CREATE TABLE item(
+	pid INT,
+    pname VARCHAR(20) NOT NULL,
+    price INT NOT NULL  
+);
+ALTER TABLE item ADD CONSTRAINT PRIMARY KEY(pid);
+ALTER TABLE item MODIFY pid INT AUTO_INCREMENT;
+ALTER TABLE item AUTO_INCREMENT = 1000;
+ALTER TABLE item ADD CONSTRAINT CHECK (price > 0);
+
+
+
+-- ordertbl table
+
+CREATE TABLE ordertbl(
+	orderno INT,
+    regdate date,
+    fipay int,
+    pay varchar(30),
+    ordersta varchar(20),
+    delista varchar(20),
+    deliaddr varchar(50) not null
+    
+);
+ALTER TABLE ordertbl ADD CONSTRAINT PRIMARY KEY(orderno);
+
+
+--  주문상세 테이블
+CREATE table orderdet (
+
+orderno int 
+
+);
+ALTER TABLE orderdet ADD CONSTRAINT PRIMARY KEY(orderno);
