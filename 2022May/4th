@@ -85,12 +85,12 @@ SELECT * FROM cust;
 INSERT INTO cust VALUES
 ('id01', 'kim','pw01*','Seoul 45983', '010-1111-1111','kim@zmail.com');
 INSERT INTO cust VALUES 
-('id02', 'lee','pw02*','Jeju 58783', '010-2222-2222','kim@zmail.com');
+('id02', 'lee','pw02*','Jeju 58783', '010-2222-2222','lee@zmail.com');
 INSERT INTO cust VALUES 
-('id03', 'park','pw03*','Busan 35126', '010-3333-3333','kim@zmail.com');
+('id03', 'park','pw03*','Busan 35126', '010-3333-3333','park@zmail.com');
 INSERT INTO cust VALUES 
-('id04', 'choi','pw04*','Daegu 66459', '010-4444-4444','kim@zmail.com');
+('id04', 'choi','pw04*','Daegu 66459', '010-4444-4444','choi@zmail.com');
 INSERT INTO cust VALUES 
-('id05', 'song','pw05*','Inchen 12556', '010-5555-6666','kim@zmail.com');
+('id05', 'song','pw05*','Inchen 12556', '010-5555-6666','song@zmail.com');
 INSERT INTO cust VALUES 
-('id06', 'jin','pw06*','Gwangju 72113', '010-6666-7777','kim@zmail.com');
+('id06', 'jin','pw06*','Gwangju 72113', '010-6666-7777','jin@zmail.com');
