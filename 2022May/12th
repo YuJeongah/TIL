@@ -1,0 +1,13 @@
+5월 12일 TIL
+
+Eclipse에서 웹 생성하기
+
+1. 프로젝트 생성시 
+   - pom.xml 수정
+   - src/main/resources/application properties 수정
+   -src/main/java/com.multi 수정하지 말것
+   -Deployed Resources/webapp에 폴더 WEB-INF 생성 그 아래에 폴더 views생성
+   
+
+2. 클라이언트 HTML ,jsp 등 계속 기술 발전하는 중
+3. 생성된 프로젝트 마우스 우클릭 -run as - spring boots app - console 확인
