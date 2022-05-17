@@ -40,8 +40,51 @@ display(a);
 
 </script>
 
-
+____________________________________________________________________
 <h1> JS08 Main</h1>
 <button onclick = "getdata()"> get data </button>
 <div>   </div>
 
+<script> 
+    window.onload = function() {
+     var c1 = document.querySelector('#c1');
+     var c2 = document.querySelector('#c2');
+     var c3 = document.querySelector('#c3');
+    var h1 = document.querySelector('#h1');
+    h1. onclick = function() {
+    var c = promt('숫자를 입력하세요",0);
+    this.innerHTML = c;
+    // this는 h1자신을 의미한다. 
+    };
+    /*방법 1 : 클릭이 일어나면 함수가 작동할 것이다. 
+    c1.addEventListener('click',funtion(){});
+        alert('c1');
+    */
+    //  방법2
+    c1.onclick = function(){
+        //alert('c1');
+    h1.innerHTML = 'clicked c1";
+    };
+    c2.onclick = function(){
+        var c = confirm('회원가입 하시겠습니까?' );
+    if (c == true) {
+        location.href='/'; 
+    }
+    };
+    c3.onclick = function(){
+        //alert('c3');
+        var c = confirm('go to Naver?');
+        if (c == true) {
+        location.href='http://www.naver.com';
+    }
+    };
+    };
+    </script>
+    
+    
+    
+    <h1>JS09</h1>
+    <button id = "c1"> click1 </button>
+    <button id = "c2"> click2 </button>
+    <h2> <a href="#">click</a></h2>
+    ____________________________________________________________________
