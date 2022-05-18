@@ -49,3 +49,21 @@ $(document).ready(function(){
 
 <h1>JQ11 Main</h1>
 <input type = "number" id= "n1" maxlength = "7"> - <input type = "number" id = "n2">
+
+<meta charset="UTF-8">
+
+<script>
+// 이벤트 배너가 1초마다 넘어가는 화면
+$(document).ready(function(){
+	var imgs = ['img/bg.jpg','img/download.jpeg','img/images.jpeg']
+	var cnt = 0; 
+	setInterval(function(){
+		$('#image').attr('src',imgs[cnt % imgs.length]);
+		cnt++;
+	},1000);
+});
+
+</script>
+<h1>JQ12 Main</h1>
+<img id = "image">
+____________________________________________________________________
