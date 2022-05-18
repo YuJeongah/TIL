@@ -67,3 +67,47 @@ $(document).ready(function(){
 <h1>JQ12 Main</h1>
 <img id = "image">
 ____________________________________________________________________
+
+<meta charset="UTF-8">
+<!--  무한스크롤  -->
+<style>
+#simg {
+
+width:600px ;
+height : 150px;
+margin : 5px;
+}
+</style>
+
+
+<script>
+$(document).ready(function(){
+	
+	function getdata(){
+	for (var i=0; i < 21; i++){	
+		$('#data').append('<img src = "img/bg.jpg">');
+	};
+	};
+	getdata();
+	/*
+	$(window).scroll(function(){
+		$('h1').text($(document).height+'   '
+				+$(window).scrollTop+'   '+$(window).height);
+		*/
+		var doch = $(document).height();
+		var winh = $(window).scrollTop()+$(window).height();
+		if(doch <= winh + 50){
+			getdata();
+		};
+	});
+
+
+</script>
+
+
+<h1>JQ13 Main</h1>
+
+<div id = "data"> 
+
+
+ </div>
