@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <title> HTML5 Basic</title>
+        <link rel=" stylesheet" href = "style.css"
+        <script src = "outerjavascript.js"> </script>
+
+    </head>
+    <body> 
+        <h1> Hello World..! </h1>
+        <a href="#alpah">Alpha</a>
+        <a href=" #beta"> Beta</a>
+        <hr>
+        <h1 id ="alpha"> Alpha</h1>
+        <h1 id =" beta"> Beta</h1>
+
+    </body>
+
+    <div class = "blinklink"> 
+        <a id = "news_press_menu" href = "#" class = "btn_blinklink"> 언론사 전체보기</a>
+        <ul id = "press_dropdown" class="cpress_list hide">
+            <li> <a href = "#" > 언론사 전체보기 </a></li>
+            <li> <a href = "#" > 종합지 </a></li>
+            <li> <a href = "#" > 방송/통신 </a></li>
+            <li> <a href = "#" > IT </a></li>
+            <li> <a href = "#" > SPORTS </a></li>
+
+
+
+        </ul>
+
+
+
+
+    </div>
+</html>
