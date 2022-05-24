@@ -9,4 +9,7 @@
        이름, 결혼식장 주소, 연락처, 계좌번호 등은 모두 허구이다. 
        회원가입 페이지와 로그인 페이지를 만드는 대신, 이름/연락처/축하메시지 입력 form을 만들었다. 
     https://ovenapp.io/project/X6GuiLQhnu0gQ5PcHextePaJMqzPoRwQ#cKsPk
+
+    로그인 페이지 작성 참고자료
+    https://gcstoryword.tistory.com/entry/Java-JSP-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EB%B0%8F-%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85-%EA%B8%B0%EB%8A%A5-%EB%A7%8C%EB%93%A4%EA%B8%B0
 코드작성 : 유정아
