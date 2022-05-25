@@ -1,3 +1,4 @@
+<!-- 좌표부분에 왜 오류가 떴는지 모르겠다. -->
 <meta charset="UTF-8">
 <style>
 #map {
@@ -111,3 +112,4 @@ $('#g').click(funcion(){
 <button id = "g">Gwangju</button>
 
 <div id = "map"></div>
+________________________________
