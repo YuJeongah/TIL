@@ -1,0 +1,113 @@
+<meta charset="UTF-8">
+<style>
+#map {
+width:500px;
+height:400px;
+}
+</style>
+<script>
+var map = null;
+
+function displaymarker(pos){
+	$(pos).each(function(index,item){
+		var marker = new kakao.maps.Marker({
+			map :map,
+			postion : new kakao.maps.LatLng(item.lat, item.lng)
+		});
+		var infowindow = new kakao.maps.InfoWindow({
+			content:item.content
+		});
+		
+		kakao.maps.event.addListener(marker, 'mouseover', function() {
+			    infowindow.open(map, marker);
+			});
+		kakao.maps.event.addListener(marker, 'mouseout', function() {
+		    infowindow.close();		    
+		});
+		kakao.maps.event.addListener(marker, 'click', function() {
+		  location.href=item.target;	    
+		});
+	});
+	}
+
+
+function getmarkers(loc){
+	var pos = null;
+	pos = [
+	    {
+	        content: '<div>카카오1</div>', 
+	        lat: 37.56041692365908, 
+	        lng : 126.91137178013711,
+	        target : 'js01'
+	    },
+	    {
+	        content: '<div>카카오2</div>', 
+	        lat :37.57041692365908,
+	       	lng :126.91237178013711,
+	        target : 'js02'
+	    },
+	    {
+	        content: '<div>카카오3</div>', 
+	        lat :37.58041692365908,
+	        lng : 126.91337178013711,
+	        target : 'js03'
+	    },
+	    {
+	        content: '<div>카카오4</div>',
+	        lat :37.59041692365908,
+	        lng : 126.91437178013711,
+	        target : 'js04'
+	    }
+	  
+	];
+};
+function gomap (loc){
+	var latlng = null;
+
+	
+	if (loc == 's') {
+		latlng = new kakao.maps.LatLng(37.55041692365908, 126.91037178013711);
+		getmarkers('s'); 
+	} else if (loc == 'b'){
+		latlng = new kakao.maps.LatLng(35.17642453774257, 129.16669784099807);
+		getmarkers('b'); 
+	} else if(loc == 'g'){
+		latlng = new kakao.maps.LatLng(35.16173425533525 , 126.88758871719189);
+		getmarkers('g'); 
+	}
+	
+	map.panTo(latlng);
+};
+function displaymap(lat, lng){
+	var mapContainer = document.getElementById('map'); 
+	var mapOption = { 
+        center: new kakao.maps.LatLng(37.5032909 , 126.91037178013711), 
+        level: 3 // 지도의 확대 레벨
+    };
+
+ map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+};
+
+$(document).ready(function(){	
+$('#s').click(funcion(){
+	display();,
+	gomap(37.55041692365908 , 126.91037178013711);
+});
+$('#b').click(funcion(){
+	display();,
+	gomap(35.17642453774257 , 129.16669784099807);
+});
+$('#g').click(funcion(){
+	display();,
+	gomap(35.16173425533525 , 126.88758871719189);
+});
+
+});
+</script>
+<h1> AJ10 Center</h1>
+<button id = "s">Seoul</button>
+<button id = "b">Busan</button>
+<button id = "g">Gwangju</button>
+
+<div id = "map"></div>
