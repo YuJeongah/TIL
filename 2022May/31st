@@ -4,3 +4,9 @@ mybatis.xml , spring.xml , mysql과 데이터를 연동하기
 VO , Interface, mapper, service등의 class를 객체지향으로 만들기
 CRUD기능 구현하기
 
+복습할 것. 
+30일, 31일 수업내용 복습하고, 오류 파악하기
+Notion Dashboard 템플릿 구성하기
+
+과제
+product외에 mySQL cate, cust, cart 테이블과 데이터 연동하여 CRUD기능구현
